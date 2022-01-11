@@ -1,1 +1,2 @@
 websocket-client==1.2.3
+minio==7.1.2

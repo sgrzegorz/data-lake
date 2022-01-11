@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coinbase-worker
+spec:
+  selector:
+    matchLabels:
+      label1: coinbase-worker
+  replicas: 1
+  template:
+      metadata:
+        labels:
+          label1: coinbase-worker
+      spec:
+        containers:
+          - name: coinbase-worker
+            image: "sgrzegorz/coinbase:latest"
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: coinbase-worker-service
+spec:
+  selector:
+    label1: coinbase-worker
+  ports:  #A Service can map any incoming port to a targetPort. By default and for convenience, the targetPort is set to the same value as the port field.
+    - port: 9000
+      targetPort: 9000
