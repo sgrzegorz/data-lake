@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coinbase-worker
+spec:
+  selector:
+    matchLabels:
+      label1: coinbase-worker
+  replicas: 1
+  template:
+      metadata:
+        labels:
+          label1: coinbase-worker
+      spec:
+        containers:
+          - name: coinbase-worker
+            image: "sgrzegorz/coinbase:latest"
+

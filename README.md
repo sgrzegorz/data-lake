@@ -20,11 +20,9 @@ kubectl get pods
 kubectl get services
 ```
 
-To uninstall resources:
+To uninstall all resources:
 ```
-MINIO_HELM_DEPLOYMENT=$(helm list --filter=minio | awk '{print $1}' | tail -n 1)
-helm uninstall $MINIO_HELM_DEPLOYMENT
-./remove_port_forwarding.sh
+./uninstall.sh
 ```
 
 To clear all kubernetes cluster resources:
@@ -32,3 +30,12 @@ To clear all kubernetes cluster resources:
 kubectl delete all --all
 ```
 
+Build dockerfile
+
+For the first time run
+`docker login`
+
+```
+docker build .  -t sgrzegorz/coinbase
+docker push sgrzegorz/coinbase
+```
