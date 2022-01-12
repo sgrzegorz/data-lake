@@ -5,22 +5,12 @@ from minio import Minio
 from minio.error import S3Error
 from io import BytesIO
 import os
-import re
 
 # Time to feed single file in seconds
 timeout = 5
 
-def find_env_variable_by_regex(regex):
-    for k, v in os.environ.items():
-        if re.match(regex, k):
-            return v
-    return None
-
-minio_service_host_reqex = r'MINIO_\d+_SERVICE_HOST'
-minio_service_port_reqex = r'MINIO_\d+_SERVICE_PORT'
-
-minio_service_host = find_env_variable_by_regex(minio_service_host_reqex)
-minio_service_port = find_env_variable_by_regex(minio_service_port_reqex)
+minio_service_host = os.getenv("MINIO_SERVICE_HOST")
+minio_service_port = os.getenv("MINIO_SERVICE_PORT")
 
 ws = create_connection("wss://ws-feed.exchange.coinbase.com")
 ws.send(
