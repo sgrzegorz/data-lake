@@ -20,11 +20,9 @@ kubectl get pods
 kubectl get services
 ```
 
-To uninstall resources:
+To uninstall all resources:
 ```
-MINIO_HELM_DEPLOYMENT=$(helm list --filter=minio | awk '{print $1}' | tail -n 1)
-helm uninstall $MINIO_HELM_DEPLOYMENT
-./remove_port_forwarding.sh
+./uninstall.sh
 ```
 
 To clear all kubernetes cluster resources:

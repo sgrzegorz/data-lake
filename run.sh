@@ -10,6 +10,9 @@ helm install --namespace default -f minio/values.yaml --generate-name minio/mini
 
 MINIO_HELM_DEPLOYMENT=$(helm list --filter=minio | awk '{print $1}' | tail -n 1)
 
+# install minio coinbase feeder
+kubectl apply -f loader/deployment.yaml
+
 # export ports
 echo "Exporting ports..."
 kubectl port-forward service/$MINIO_HELM_DEPLOYMENT 9000:9000 --namespace default &
