@@ -32,3 +32,12 @@ To clear all kubernetes cluster resources:
 kubectl delete all --all
 ```
 
+Build dockerfile
+
+For the first time run
+`docker login`
+
+```
+docker build .  -t sgrzegorz/coinbase
+docker push sgrzegorz/coinbase
+```
