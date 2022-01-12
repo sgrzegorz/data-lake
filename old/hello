@@ -1,7 +1,0 @@
-#!/bin/bash
-
-touch test_data.txt
-
-echo '{"type": "subscribe","product_ids": ["ETH-USD"],"channels": ["level2"]}' | websocat wss://ws-feed.exchange.coinbase.com  >> test_data.txt 
-
-
