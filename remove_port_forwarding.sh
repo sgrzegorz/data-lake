@@ -12,7 +12,7 @@ MINIO_HELM_DEPLOYMENT=$(helm list --filter=minio | awk '{print $1}' | tail -n 1)
 while getopts "ah" o; do
     case "${o}" in
         a)
-            MINIO_HELM_DEPLOYMENT="minio"
+            MINIO_DEPLOYMENT_NAME="minio"
             ;;
         h)
             usage
@@ -22,9 +22,9 @@ while getopts "ah" o; do
     esac
 done
 
-while (($(ps aux | grep "$MINIO_HELM_DEPLOYMENT" | grep "port-forward" | wc -l) > 0 )); do
-  PID_TO_REMOVE=$(ps aux | grep "$MINIO_HELM_DEPLOYMENT" | grep "port-forward" | awk '{print $2}' | head -n 1)
-  echo "Removing port forwarding of $MINIO_HELM_DEPLOYMENT with pid $PID_TO_REMOVE"
+while (($(ps aux | grep "$MINIO_DEPLOYMENT_NAME" | grep "port-forward" | wc -l) > 0 )); do
+  PID_TO_REMOVE=$(ps aux | grep "$MINIO_DEPLOYMENT_NAME" | grep "port-forward" | awk '{print $2}' | head -n 1)
+  echo "Removing port forwarding of $MINIO_DEPLOYMENT_NAME with pid $PID_TO_REMOVE"
   kill -9 $PID_TO_REMOVE
 done
 
