@@ -25,3 +25,6 @@ helm repo add spark-operator https://googlecloudplatform.github.io/spark-on-k8s-
 
 echo "Installing spark..."
 helm install sparkoperator spark-operator/spark-operator --set image.tag=v1beta2-1.3.0-3.1.1
+
+echo "Adding spark deployment from spark/deployment.yaml..."
+kubectl apply -f spark/deployment.yaml
