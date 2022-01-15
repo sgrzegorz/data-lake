@@ -45,7 +45,7 @@ def upload_to_minio(filename):
         print(f"{filename} Could not read file")
         return
     print(type(text))
-    bucket = "coinbase-bucket"
+    bucket = "raw-data"
     content = BytesIO(bytes(text, 'utf-8'))
     key = filename
     size = content.getbuffer().nbytes
