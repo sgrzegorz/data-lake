@@ -75,3 +75,18 @@ pip install requirements.txt
 spark-submit main.py
 
 ```
+
+Configure Google Cluster
+
+```
+glcloud init
+gcloud container clusters get-credentials CLUSTER_NAME
+
+```
+
+Minimal required resources
+```
+3 CPU
+4GB memory 
+10 GB storage
+```
