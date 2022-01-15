@@ -6,5 +6,7 @@ helm uninstall $MINIO_DEPLOYMENT_NAME
 
 helm uninstall sparkoperator
 
+kubectl delete sparkapplication pyspark-pi
+
 kubectl delete all --all
 
