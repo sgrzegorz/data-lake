@@ -58,8 +58,8 @@ def process_data(filename):
     df.show(10)
 
 
-objects = client.list_objects(SOURCE_BUCKET)
-print(f"Processing {len(objects)} from {SOURCE_BUCKET}")
+objects = list(client.list_objects(SOURCE_BUCKET))
+print(f"Processing {len(objects)} objects from {SOURCE_BUCKET}")
 
 for obj in objects:
     #     print(obj._object_name)

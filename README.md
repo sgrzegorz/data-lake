@@ -6,7 +6,7 @@ Requirements:
 
 To setup cluster:
 ```
-./run.sh
+./install.sh
 ```
 
 To check if cluster is deployed see:
