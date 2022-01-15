@@ -291,9 +291,12 @@ buckets:
   #   policy: none
   #   purge: false
   #   versioning: true
-  - name: coinbase-bucket
+  - name: raw-data
     policy: public
-    purge: false
+    purge: true
+  - name: processed-data
+    policy: public
+    purge: true
 
 ## Additional Annotations for the Kubernetes Job makeBucketJob
 makeBucketJob:

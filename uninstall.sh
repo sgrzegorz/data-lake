@@ -4,5 +4,8 @@ MINIO_DEPLOYMENT_NAME="minio"
 helm uninstall $MINIO_DEPLOYMENT_NAME
 ./remove_port_forwarding.sh -a
 
-kubectl delete all --all
+helm uninstall sparkoperator
 
+kubectl delete sparkapplications --all
+
+kubectl delete all --all
