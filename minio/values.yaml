@@ -293,10 +293,10 @@ buckets:
   #   versioning: true
   - name: raw-data
     policy: public
-    purge: false
+    purge: true
   - name: processed-data
     policy: public
-    purge: false
+    purge: true
 
 ## Additional Annotations for the Kubernetes Job makeBucketJob
 makeBucketJob:

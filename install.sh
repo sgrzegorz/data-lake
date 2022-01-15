@@ -15,9 +15,9 @@ helm install $MINIO_DEPLOYMENT_NAME --namespace default -f minio/values.yaml min
 kubectl apply -f loader/coinbase-worker.yaml
 
 # export ports
-echo "Exporting ports..."
-kubectl port-forward service/$MINIO_DEPLOYMENT_NAME 9000:9000 --namespace default &
-kubectl port-forward service/$MINIO_DEPLOYMENT_NAME-console 9001:9001 --namespace default &
+echo "Exporting ports..." | tee port_forwarding.log
+kubectl port-forward service/$MINIO_DEPLOYMENT_NAME 9000:9000 --namespace default >> port_forwarding.log 2>&1 &
+kubectl port-forward service/$MINIO_DEPLOYMENT_NAME-console 9001:9001 --namespace default >> port_forwarding.log 2>&1 &
 
 
 echo "Adding spark helm chart repo"

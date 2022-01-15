@@ -6,9 +6,6 @@ helm uninstall $MINIO_DEPLOYMENT_NAME
 
 helm uninstall sparkoperator
 
-kubectl delete sparkapplication spark-job
-
-kubectl delete sparkapplication scheduled-spark-job
+kubectl delete sparkapplications --all
 
 kubectl delete all --all
-
