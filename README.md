@@ -39,3 +39,19 @@ For the first time run
 docker build .  -t sgrzegorz/coinbase
 docker push sgrzegorz/coinbase
 ```
+
+Installing spark operator
+
+```
+helm repo add spark-operator https://googlecloudplatform.github.io/spark-on-k8s-operator
+helm install sparkoperator spark-operator/spark-operator --set image.tag=v1beta2-1.3.0-3.1.1
+
+helm uninstall sparkoperator
+
+```
+
+```
+docker build . -t sgrzegorz/sparkjob 
+docker push sgrzegorz/sparkjob
+
+```
